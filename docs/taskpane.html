@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://appsforoffice.microsoft.com; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.microsoft.com https://*.office.com https://*.office.net https://*.officeapps.live.com; frame-src 'self' https://*.microsoft.com https://*.office.com https://*.officeapps.live.com; object-src 'none'; base-uri 'self'; form-action 'none'" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Calendar Search</title>
+    <!-- Office.js: the only external script, served by Microsoft -->
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <link rel="stylesheet" href="taskpane.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Calendar Search</h1>
+      <div class="tabs">
+        <button class="tab on" data-panel="panel-search">Campaign Search</button>
+        <button class="tab" data-panel="panel-summary">Destination Summary</button>
+        <button class="tab" data-panel="panel-open">Open Placements</button>
+      </div>
+
+      <!-- Campaign Search -->
+      <div id="panel-search" class="panel">
+        <div class="search-row">
+          <input id="search-term" type="search" placeholder="Search the 2027 Schedule…" autocomplete="off" />
+          <button id="search-btn">Search</button>
+        </div>
+        <div class="toolbar">
+          <select id="cs-placement" class="placement-filter" title="Filter by placement"></select>
+          <button id="cs-copy" class="secondary" disabled title="Copies the rows currently shown">Copy results</button>
+        </div>
+        <div id="cs-status" class="status">Results appear here and are only visible to you. Click a row to jump to its cell.</div>
+        <div id="cs-results" class="results"></div>
+      </div>
+
+      <!-- Destination Summary -->
+      <div id="panel-summary" class="panel" hidden>
+        <div class="search-row">
+          <select id="sum-select" class="dest-select"></select>
+          <button id="sum-refresh" class="secondary" title="Re-read the calendar (use after edits)">Refresh</button>
+        </div>
+        <div class="toolbar">
+          <select id="sum-placement" class="placement-filter" title="Filter by placement"></select>
+          <button id="sum-copy" class="secondary" disabled title="Copies the rows currently shown">Copy summary</button>
+        </div>
+        <div id="sum-status" class="status">Pick a destination to summarise its inventory. The first pick reads the calendar (a few seconds); after that switching is instant.</div>
+        <div id="sum-results" class="results"></div>
+      </div>
+
+      <!-- Open Placements -->
+      <div id="panel-open" class="panel" hidden>
+        <div class="search-row">
+          <select id="op-select" class="dest-select"></select>
+          <button id="op-refresh" class="secondary" title="Re-read the calendar (use after edits)">Refresh</button>
+        </div>
+        <div class="toolbar">
+          <select id="op-placement" class="placement-filter" title="Filter by placement"></select>
+          <button id="op-copy" class="secondary" disabled title="Copies the rows currently shown">Copy results</button>
+        </div>
+        <div id="op-status" class="status">Pick a destination to list its open (unsold) slots. Click a row to jump to it.</div>
+        <div id="op-results" class="results"></div>
+      </div>
+    </div>
+    <script src="taskpane.js"></script>
+  </body>
+</html>

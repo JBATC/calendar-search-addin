@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["es2017", "dom", "dom.iterable"],
+    "types": ["office-js"],
+    "removeComments": false,
+    "strict": false,
+    "outDir": "docs",
+    "rootDir": "src"
+  },
+  "files": ["src/taskpane.ts"]
+}
